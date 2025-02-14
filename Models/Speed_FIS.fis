@@ -1,0 +1,76 @@
+[System]
+Name='Speed_FIS'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=2
+NumRules=10
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Error_LeftMotor'
+Range=[-15 15]
+NumMFs=3
+MF1='Negative':'gaussmf',[4.09 -13.63]
+MF2='Zero':'gaussmf',[4.09 0]
+MF3='Positive':'gaussmf',[4.09 13.63]
+
+[Input2]
+Name='RateChange_LeftMotor'
+Range=[-10 10]
+NumMFs=3
+MF1='negative':'gaussmf',[2.82551227331759 -7.09]
+MF2='Zero':'gaussmf',[0.8571 0]
+MF3='positive':'gaussmf',[2.77 6.66928118393234]
+
+[Input3]
+Name='Error_RightMotor'
+Range=[-15 15]
+NumMFs=3
+MF1='Negative':'gaussmf',[4.09 -13.63]
+MF2='Zero':'gaussmf',[4.09 0]
+MF3='Positive':'gaussmf',[4.09 13.63]
+
+[Input4]
+Name='RateChange_RightMotor'
+Range=[-10 10]
+NumMFs=3
+MF1='Negative':'gaussmf',[2.826 -7.09]
+MF2='Zero':'gaussmf',[0.8571 0]
+MF3='Positive':'gaussmf',[2.77 6.669]
+
+[Output1]
+Name='Left_motor'
+Range=[-30 185]
+NumMFs=5
+MF1='Very_low':'trimf',[-41.59 -14.78 -0.2681]
+MF2='Low':'trimf',[13 23.75 34.5]
+MF3='No_change':'trimf',[66.75 77.5 88.25]
+MF4='High':'trimf',[99 109.8 120.5]
+MF5='Very_high':'trimf',[146 162 209.318181818182]
+
+[Output2]
+Name='Right_motor'
+Range=[-30 185]
+NumMFs=5
+MF1='Very_low':'trimf',[-41.59 -14.78 -0.2681]
+MF2='Low':'trimf',[13 23.75 34.5]
+MF3='No_change':'trimf',[66.75 77.5 88.25]
+MF4='High':'trimf',[99 109.8 120.5]
+MF5='Very_high':'trimf',[145.7 161.6 209]
+
+[Rules]
+2 0 0 0, 3 0 (1) : 1
+3 0 0 0, 5 0 (1) : 1
+1 0 0 0, 1 0 (1) : 1
+2 3 0 0, 2 0 (1) : 1
+2 1 0 0, 4 0 (1) : 1
+0 0 2 0, 0 3 (1) : 1
+0 0 3 0, 0 5 (1) : 1
+0 0 1 0, 0 1 (1) : 1
+0 0 2 3, 0 2 (1) : 1
+0 0 2 1, 0 4 (1) : 1
