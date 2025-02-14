@@ -1,7 +1,3 @@
-Here’s a professional **README.md** for your project:  
-
----
-
 # **PID-ANN-Fuzzy-SumoBot**  
 *Implementing PID, ANN, and Fuzzy Logic Controllers for a DC Encoder Motor in a SUMO Robot*  
 
